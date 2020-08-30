@@ -2,7 +2,7 @@
 This is a little C++ project I started. I started it because I couldn't find an assembly interpreter that could have operations added to it to make it extensible. It's basically just an interpreter for assembly code that you can add instructions to by modifying instructions.cpp/h. Note, this project is incredibly messy, and I haven't really gone through and cleaned it up. So expect a lot of messy/unused/commented out code.
 
 # Making a special interpreter
-If you want to make a modified version of this interpreter, but instead use it as your own
+If you want to make a modified version of this interpreter, but instead use it as your own, then feel free to fork this repository. Just make sure to keep the same license(since GPL v3.0 requires that as far as I know).
 
 # Structs
 I used many different structs to allow for data to be passed around function calls easily, and for extensions to be much easier. So, here I will outline some of the structs that were used, as well as their purpose.
