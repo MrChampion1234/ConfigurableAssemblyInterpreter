@@ -1,0 +1,22 @@
+digraph G {
+
+runProgram -> createEnvironmentFromFile;
+runProgram -> iterateOnce;
+
+createEnvironmentFromFile -> makeEnvConf;
+createEnvironmentFromFile -> interpretFile;
+createEnvironmentFromFile -> setupEnvironment;
+
+interpretFile -> makeLabelMap;
+interpretFile -> interpretLine;
+interpretLine -> splitOnFirstChar;
+interpretLine -> stripends
+interpretLine -> getOpFromString;
+subgraph cluster_inLoop {
+	splitOnFirstChar;
+	stripends
+	getOpFromString;
+	label="In loop";
+}
+interpretLine -> processOperation;
+}
