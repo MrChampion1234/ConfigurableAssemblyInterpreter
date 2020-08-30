@@ -1,22 +1,32 @@
 digraph G {
+ rank=same;
+ rankdir=LR;
+node[shape=record];
+runProgram[label="runProgram\n|<f0>Env\n|<f1>void\n"];
+createEnvironmentFromFile[label="<f0>createEnvironmentFromFile\n|<f1>EnvConf\n|<f2>Program\n|<f3>Env\n"];
+iterateOnce[label="<f0>iterateOnce\n"];
+makeEnvConf[label="<f0>makeEnvConf"];
+interpretFile[label="<f0>interpretFile\n|<f1>Labelmap_t\n|<f2>Line"];
+interpretLine[label="<f0>interpretLine\n|<f1>pair\<string,string\>\n|<f2>string\n|<f3>Op\n|<f4>Line"]
 
-runProgram -> createEnvironmentFromFile;
-runProgram -> iterateOnce;
+runProgram:f0 -> createEnvironmentFromFile:f0:w;
+runProgram:f1 -> iterateOnce:f0:w;
 
-createEnvironmentFromFile -> makeEnvConf;
-createEnvironmentFromFile -> interpretFile;
-createEnvironmentFromFile -> setupEnvironment;
+createEnvironmentFromFile:f1 -> makeEnvConf:f0:w;
+createEnvironmentFromFile:f2 -> interpretFile:f0:w;
+createEnvironmentFromFile:f3 -> setupEnvironment:w;
 
-interpretFile -> makeLabelMap;
-interpretFile -> interpretLine;
-interpretLine -> splitOnFirstChar;
-interpretLine -> stripends
-interpretLine -> getOpFromString;
+interpretFile:f1:e -> makeLabelMap:w;
+interpretFile:f2:e -> interpretLine:f0:w;
+
+interpretLine:f1 -> splitOnFirstChar:w;
+interpretLine:f2 -> stripends:w;
+interpretLine:f3 -> getOpFromString:w;
 subgraph cluster_inLoop {
 	splitOnFirstChar;
 	stripends
 	getOpFromString;
 	label="In loop";
 }
-interpretLine -> processOperation;
+interpretLine:f4 -> processOperation:w;
 }

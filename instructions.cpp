@@ -64,7 +64,6 @@ void nop(Env &env, std::vector<Arg> args) {
 	// Do nothing
 	env.line++;     // Move to next line
 	env.steps++;    // Increment steps
-	//return env;
 }
 
 void label(Env &env, std::vector<Arg> args) {
@@ -79,7 +78,6 @@ void mov(Env &env, std::vector<Arg> args) {
 
 	env.line++;    // Move to next line
 	env.steps++;
-	//return env;
 }
 
 void cpf(Env &env, std::vector<Arg> args) {
