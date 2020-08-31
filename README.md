@@ -44,4 +44,12 @@ This is just a header file for the enum class `Op`.
 
 ## mainLib.{cpp,h}
 maiLib.cpp does all the interpreting(except for any string operations, which are in `stringops.cpp`). 
-  
+
+# TODO
+1. Add the capability to do basic I/O using `cout` and `cin`.
+2. Clean up this mess. Seriously, this code is very ugly and messy. If you can help with this, please feel free to try and make it better.
+3. Add an option to compile the Program struct to C++ code. This would mean adding an `#include` to the start of the new file, putting any other boilerplate needed for a standard C program, then adding whatever function calls are needed to the file at each line, and lastly adding `goto` statements and labels for jmp instructions. Above all, the code should be compilable using a standard C++ compiler like `gpp`. This should be pretty simple, as long as I create a new map from an Op to string that gives the function name as a string given its Op enum class. Or, if I'm feeling extra lazy, I could just define a Program in the new file that hardcodes the Program struct that was just interpreted into the new file, and then add on any boilerplate code that is needed to get it to run the Program struct.
+
+
+
+
