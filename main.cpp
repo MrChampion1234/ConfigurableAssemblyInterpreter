@@ -151,6 +151,25 @@ int testStringops() {
 	return 0;
 }
 
+// The GNU GPL v3.0 license
+std::string license = 
+R"LICENSE(ConfigurableAssemblyInterpreter is exactly what you'd expect, a configurable assembly intepreter
+Copyright (C) 2020 Tye Paquette
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+)LICENSE";
+
 int main(int argc, char const *argv[], char *envp[]) {
 	// Test the tellg function to see if any information can be gained from it 
 	/*
@@ -171,7 +190,7 @@ int main(int argc, char const *argv[], char *envp[]) {
 	} else {
 		// Print GNU GPL v3.0 license
 		if (argv[1] == "-v") {
-			
+			printf("%s\n", license.c_str());
 		}
 		std::string filename = argv[1];
 		printState(runProgram(filename));
@@ -180,5 +199,4 @@ int main(int argc, char const *argv[], char *envp[]) {
 	
 	return 0;
 	
-	//return 0;
 }
